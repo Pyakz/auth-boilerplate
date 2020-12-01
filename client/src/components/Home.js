@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import axios from '../axios'
 import { useHistory, Link, Switch } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { Nav, Navbar, Button } from 'react-bootstrap'

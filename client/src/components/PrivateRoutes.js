@@ -1,6 +1,6 @@
 import { Redirect, Route } from 'react-router-dom'
 import Decode from 'jwt-decode'
-import axios from 'axios'
+import axios from '../axios'
 
 const checkToken = () => {
     const token = localStorage.getItem('accessToken')

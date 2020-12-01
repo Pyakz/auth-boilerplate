@@ -1,6 +1,6 @@
 import React, { useState  } from 'react'
 import { useToasts } from 'react-toast-notifications'
-import axios from 'axios'
+import axios from '../axios'
 
 import { Card, 
         Button,
@@ -78,6 +78,7 @@ const BoarderCard = ({ boarders, rooms, setBoarders }) => {
                         <Card.Body>
                         <Card.Title>{boarder.name}</Card.Title>
                         <ListGroup className="m-2">
+
                             <ListGroupItem>Contact: {boarder.contactNum}</ListGroupItem>
                             <ListGroupItem>Parent: {boarder.parentNum}</ListGroupItem>
                             <ListGroupItem>Room: {boarder.roomID && boarder.roomID.name ? boarder.roomID.name : 'Undefined or Deleted'}</ListGroupItem>

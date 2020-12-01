@@ -1,5 +1,5 @@
 import React, { useState  } from 'react'
-import axios from 'axios'
+import axios from '../axios'
 import { Button, Modal, Col, Form } from 'react-bootstrap'
 import { useToasts } from 'react-toast-notifications'
 

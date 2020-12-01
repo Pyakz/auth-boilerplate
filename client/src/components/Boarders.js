@@ -1,6 +1,6 @@
 import React, { useEffect, useState  } from 'react'
 import { useToasts } from 'react-toast-notifications'
-import axios from 'axios'
+import axios from '../axios'
 import BoarderCards from './BoarderCards'
 import { Button, Spinner} from 'react-bootstrap'
 import AddBoarderModal from './AddBoarderModal';

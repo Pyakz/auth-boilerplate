@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import UserAvatar from '../assets/avatar.png'
 import { Spinner } from 'react-bootstrap'
 import { useToasts } from 'react-toast-notifications'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-
+import axios from '../axios';
 const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
@@ -15,15 +14,9 @@ const Login = () => {
 const [username, setUsername] = useState('your_demo')
 const [password, setPassword] = useState('iamdemo')
 const [loading, setLoading] = useState(false)
-
 const onSubmit = e => {
   setLoading(true)
-
-  let route = '/users/login'
-  if (process.env.NODE_ENV === 'production') { 
-    route = 'api/users/login'
-  } 
-  axios.post(route, {
+  axios.post('/users/login', {
             username: username.toLowerCase(),
             password: password.toLowerCase()
           }).then(res => {

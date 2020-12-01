@@ -1,6 +1,6 @@
 import React, { useState  } from 'react'
 import { useToasts } from 'react-toast-notifications'
-import axios from 'axios'
+import axios from '../axios'
 
 import { Card, 
         Button,

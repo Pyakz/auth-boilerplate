@@ -20,14 +20,14 @@ app.use('/api/boarders', verifyToken, boardersRoute);
 app.use('/api/users', userRoute);
 
 // --------------- DATABASE REALTED THINGY ---------------- //
-const URI  = process.env.DB_STRING
+let URI  = process.env.DEV_DB_STRING
 const PORT = process.env.PORT || 4000
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
+    URI =  process.env.PROD_DB_STRING
     // Set static folder
     app.use(express.static('client/build'));
-  
     app.get('*', (req, res) => {
       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });

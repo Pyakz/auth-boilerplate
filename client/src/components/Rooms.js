@@ -1,6 +1,6 @@
 import React, { useEffect, useState  } from 'react'
 import { useToasts } from 'react-toast-notifications'
-import axios from 'axios'
+import axios from '../axios'
 import RoomCards from './RoomCards'
 import AddRoomModal from './AddRoomModal'
 
