@@ -30,12 +30,13 @@ const Rooms = () => {
             setLoading(false)
         })
         .catch(error => {
-            if (error) { addToast( error.response.data , { 
-              appearance: 'warning',
-              autoDismiss: true,
-              autoDismissTimeout: 3000,
-          })
-        } 
+            if (error) { 
+                    addToast( error.response.data , { 
+                    appearance: 'warning',
+                    autoDismiss: true,
+                    autoDismissTimeout: 3000,
+                })
+            } 
       })
     },[addToast])
 

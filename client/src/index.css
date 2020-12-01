@@ -75,3 +75,7 @@ html {
 .boardercard {
   width: 100% !important;
 }
+.REGISTER:hover {
+  cursor: pointer !important;
+  color: black !important;
+}

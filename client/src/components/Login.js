@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import UserAvatar from '../assets/avatar.png'
-import { Spinner } from 'react-bootstrap'
+import { Spinner} from 'react-bootstrap'
 import { useToasts } from 'react-toast-notifications'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
+import Register from './Register'
 import axios from '../axios';
 const Login = () => {
   const dispatch = useDispatch()
@@ -14,6 +15,16 @@ const Login = () => {
 const [username, setUsername] = useState('your_demo')
 const [password, setPassword] = useState('iamdemo')
 const [loading, setLoading] = useState(false)
+const [success, setSuccess] = useState(false)
+const [registered, setRegistered] = useState({
+  username:'',
+  password:''
+})
+
+// MODAL
+const [show, setShow] = useState(false);
+const handleClose = () => setShow(false);
+const handleShow = () => setShow(true);
 const onSubmit = e => {
   setLoading(true)
   axios.post('/users/login', {
@@ -26,7 +37,8 @@ const onSubmit = e => {
             history.push("/");
           }).catch(error => {
             setLoading(false)
-            if (error) { addToast( error.response.data , { 
+            if (error) { 
+            addToast( error.response.data , { 
               appearance: 'warning',
               autoDismiss: true,
               autoDismissTimeout: 3000,
@@ -37,6 +49,7 @@ const onSubmit = e => {
 }
     return (
       <div className='LOGIN_CONTAINER'>
+        <Register show={show} handleClose={handleClose} setSuccess={setSuccess} setRegistered={setRegistered} />
         <form className='LOGIN_FORM rounded' onSubmit={(e) => onSubmit(e)} style={{ opacity: loading ? "0.8" : 1 }}>
                 <img 
                 className='LOGIN_USER text-center p-3'
@@ -49,7 +62,7 @@ const onSubmit = e => {
                     type="text" 
                     className="form-control" 
                     placeholder="Enter Username" 
-                    value={username} 
+                    value={success ? registered.username : username} 
                     onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
@@ -59,7 +72,7 @@ const onSubmit = e => {
                     type="password" 
                     className="form-control" 
                     placeholder="Enter password"
-                    value={password} 
+                    value={success ? registered.password : password} 
                     onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
@@ -71,8 +84,10 @@ const onSubmit = e => {
                 </div>
                 <button type="submit" className="btn btn-dark btn-block">
                   { loading ? <Spinner animation="border" variant="primary" size="sm"/> : "LOGIN" }
-                </button>  
+                </button>
+                <p onClick={handleShow} className='m-2 REGISTER'>Need an account? </p>  
             </form>
+
         </div>
     )
 }

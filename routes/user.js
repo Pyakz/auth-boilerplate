@@ -8,6 +8,7 @@ const { registerValidation, loginValidation } = require('../middlewares/Validati
 
 router.post('/register', async (req, res) => {
 
+
     const { error } = registerValidation(req.body)       
     if(error) { return res.status(400).end(error.details[0].message.toUpperCase()) }
 
@@ -20,11 +21,11 @@ router.post('/register', async (req, res) => {
     const newUser = new User({
         username: req.body.username.toLowerCase(),
         password: hashedPassword,
-        role: req.body.role,
+        role: process.env.NODE_ENV === 'production' ? "demo" : req.body.role
     })
 
     await newUser.save()
-    res.status(200).json(newUser)
+    res.status(200).end('Register Completed.')
 
 })
 //--------------- BASIC LOGIN ------------------//
@@ -66,7 +67,6 @@ router.post('/token',async ( req, res ) => {
     const accessExpire = process.env.ACCESS_TOKEN_EXPIRES;
     const { refreshToken } = req.cookies;
     if (!refreshToken) { return res.status(403).end('Access Denied') }
-    console.log(refreshToken);
 
     JWT.verify(refreshToken, process.env.REFRESH_SECRET_KEY, (err, user) => {
     if (err) { return res.sendStatus(403) }

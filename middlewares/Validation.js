@@ -11,8 +11,8 @@ const boarderExist = async (req,res,next) => {
 // --------------- AUTH VALIDATORS ------------------ //
 const registerValidation = data => {
     const schema = Joi.object({
-        username: Joi.string().min(2).max(100).required(),
-        password: Joi.string().min(5).max(1024).required(),
+        username: Joi.string().min(4).max(100).required(),
+        password: Joi.string().min(4).max(1024).required(),
         role: Joi.string().valid('admin', 'demo').required()
     });
     return schema.validate(data);
