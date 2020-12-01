@@ -17,7 +17,7 @@ const Home = () => {
             if(res.status === 200) {
                 localStorage.removeItem('accessToken');
                 dispatch({type:'LOGOUT'})
-                history.push('/login')
+                history.push('/auth')
             }
         })
     }

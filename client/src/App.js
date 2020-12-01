@@ -16,7 +16,7 @@ const App = () => {
       <div className="App">
         <Switch>
             <PrivateRoute exact={isLoggedIn ? false : true} path='/' component={Home} /> 
-            <Route exact path='/login' render={props => <Login {...props} />} />
+            <Route exact path='/auth' render={props => <Login {...props} />} />
             <Route path='*' render={props => <h1>Error</h1>} />
         </Switch>
       </div>

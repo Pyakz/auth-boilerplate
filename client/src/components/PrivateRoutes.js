@@ -28,7 +28,7 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => {
           checkToken() ? (
             <Component {...props} />
             ) : (
-            <Redirect to="/login"/>
+            <Redirect to="/auth"/>
             )
          }
     />
