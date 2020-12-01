@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Nav, Navbar, Button } from 'react-bootstrap'
 import Rooms from './Rooms'
 import Boarders from './Boarders'
-import PrivateRoute  from './PrivateRoutes'
+import { PrivateRoute }  from './PrivateRoutes'
 
 const Home = () => {
     const history = useHistory()
@@ -26,7 +26,7 @@ const Home = () => {
         <div className='container-fluid'>
 
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand href="#home">MERN Boilerplate</Navbar.Brand>
+                <Navbar.Brand>Auth Boilerplate</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto">

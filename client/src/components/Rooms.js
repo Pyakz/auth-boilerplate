@@ -10,7 +10,6 @@ const Rooms = () => {
     const [loading, setLoading] = useState(true)
     const { addToast } = useToasts()
     const [rooms, setRooms] = useState([])
-
     const [inputs, setInputs] = useState({
         name:'',
         image:'',

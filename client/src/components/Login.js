@@ -41,7 +41,7 @@ const onSubmit = e => {
                 <img 
                 className='LOGIN_USER text-center p-3'
                 src={UserAvatar} alt="USER" />
-                <h5 className='text-center'>Apartment Management</h5>
+                <h5 className='text-center'>Auth</h5>
                 <h5 className='text-center  mb-4'>Boilerplate</h5>
                 <div className="form-group">
                     <label>Username</label>

@@ -2,7 +2,7 @@ import { Redirect, Route } from 'react-router-dom'
 import Decode from 'jwt-decode'
 import axios from '../axios'
 
-const checkToken = () => {
+export const checkToken = () => {
     const token = localStorage.getItem('accessToken')
     if(!token) { return false }
     try {
@@ -13,16 +13,15 @@ const checkToken = () => {
           .then(res => res.data)
           .then(data => {
             localStorage.setItem('accessToken', JSON.stringify(data.accessToken));
-            return true
           }).catch(error => {
-              console.log(error.response.data);
+            return false
           })
          }
     } catch (error) { return false }
     return true
   }
   
-const PrivateRoute = ({ component: Component, auth, ...rest }) => {
+export const PrivateRoute = ({ component: Component, auth, ...rest }) => {
     return (
     <Route {...rest} render = { props => 
           checkToken() ? (
@@ -35,4 +34,4 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => {
     )
 };
 
-export default PrivateRoute
+

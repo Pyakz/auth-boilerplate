@@ -1,4 +1,3 @@
-  
 const JWT = require('jsonwebtoken');
 
 module.exports = function(req,res,next) {
@@ -8,10 +7,7 @@ module.exports = function(req,res,next) {
         const verified = JWT.verify(token, process.env.SECRET_KEY)
         req.user = verified
     } catch (error) {
-        return res.status(400).json({
-            message:"Invalid Token",
-            error: error.toString()
-        })
+        return res.status(400).end(error.toString())
     }
     next()
 }
