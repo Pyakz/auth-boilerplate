@@ -6,6 +6,10 @@ import { Switch, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 const App = () => {
+
+  
+
+
   const dispatch = useDispatch()
   const { isLoggedIn } = useSelector(state => state.auth)
   useEffect(() => {

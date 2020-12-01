@@ -19,9 +19,6 @@ app.use('/api/rooms', verifyToken, roomsRoute);
 app.use('/api/boarders', verifyToken, boardersRoute);
 app.use('/api/users', userRoute);
 
-
-console.log(path.resolve(__dirname, 'client', 'build', 'index.html'));
-
 // --------------- DATABASE REALTED THINGY ---------------- //
 const URI  = process.env.DB_STRING
 const PORT = process.env.PORT || 4000

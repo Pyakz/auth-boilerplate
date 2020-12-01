@@ -16,10 +16,14 @@ const [username, setUsername] = useState('your_demo')
 const [password, setPassword] = useState('iamdemo')
 const [loading, setLoading] = useState(false)
 
-
 const onSubmit = e => {
   setLoading(true)
-  axios.post('/users/login', {
+
+  let route = '/users/login'
+  if (process.env.NODE_ENV === 'production') { 
+    route = 'api/users/login'
+  } 
+  axios.post(route, {
             username: username.toLowerCase(),
             password: password.toLowerCase()
           }).then(res => {
