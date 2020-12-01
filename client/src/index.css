@@ -1,0 +1,77 @@
+:root {
+  --shadow:0px 0px 10px -7px rgba(70,71,77,0.66);
+  --shadow2:0px 0px 15px -7px rgba(70,71,77,0.99);
+  --shadow3:0px 0px 4px 1px rgba(0,0,0,0.42);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  font-size: inherit;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+}
+.floating {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  margin: 2rem;
+  height: 3rem !important;
+  width: 3rem !important;
+  border-radius: 50% !important;
+}
+.LOGIN_CONTAINER {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.LOGIN_FORM {
+  padding: 3rem 2rem;
+  text-align: left;
+  width: 25rem;
+  background-color:#6f76d8;
+  box-shadow: var(--shadow3);
+  color: white !important;
+}
+.LOGIN_USER {
+  box-shadow: var(--shadow2);
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background-color:#8fc3e6;
+  border: 2px solid white;
+}
+@media (max-width: 500px) {
+  .LOGIN_CONTAINER {
+    background:#6f76d8 !important;
+  }
+  .LOGIN_USER {
+    margin-top: -3rem !important;
+  }
+  .LOGIN_FORM {
+      padding: 2rem;
+      width: 100%;
+      box-shadow: none;
+  }
+
+  .css-fwfomi-ToastElement {
+    width: 100% !important;
+    z-index: 100000 !important;
+  }
+  .react-toast-notifications__container {
+    width: 100vw !important;
+    z-index: 100000 !important;
+  }
+}
+.boardercard {
+  width: 100% !important;
+}
