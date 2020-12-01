@@ -1,3 +1,5 @@
 # mern-template
-"# mern-template" 
-"# auth-boilerplate" 
+```
+npm install
+cd client && npm install
+```
