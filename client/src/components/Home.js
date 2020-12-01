@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from '../axios'
 import { useHistory, Link, Switch } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
@@ -6,11 +6,11 @@ import { Nav, Navbar, Button } from 'react-bootstrap'
 import Rooms from './Rooms'
 import Boarders from './Boarders'
 import { PrivateRoute }  from './PrivateRoutes'
-
+import Decode from 'jwt-decode'
 const Home = () => {
     const history = useHistory()
     const dispatch = useDispatch()
-
+    const [type, setType] = useState('')
     const LogOut = () => {
         axios.post('/users/logout')
         .then(res => {
@@ -21,10 +21,14 @@ const Home = () => {
             }
         })
     }
-
+    useEffect(() => {
+        const token = localStorage.getItem('accessToken')
+        const { role } = Decode(token)
+        setType(role)
+    },[])
     return (
         <div className='container-fluid'>
-
+            <Button disabled variant='info' className='DEMO'>{ type.toUpperCase() } Account</Button>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Navbar.Brand>Auth Boilerplate</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

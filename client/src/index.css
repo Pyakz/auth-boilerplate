@@ -79,3 +79,10 @@ html {
   cursor: pointer !important;
   color: black !important;
 }
+.DEMO {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 2000;
+  margin: 1.6rem;
+}
