@@ -34,6 +34,7 @@ const Register = ({ show, handleClose,setSuccess,setRegistered }) => {
                   })
                   addToast(res.response.data,{ appearance: 'success',autoDismiss: true,autoDismissTimeout: 2000})
                 }).catch(error => {
+                  setLoading(false)
                     if(error.response) {
                         setErrorMessage(error.response.data)
                         setTimeout(() => setErrorMessage(false),2000)
